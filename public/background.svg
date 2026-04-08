@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" style="background-color: transparent;">
+  <defs>
+    <radialGradient id="grad1" cx="50%" cy="50%" r="70%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color: black; stop-opacity: 0.05;" />
+      <stop offset="100%" style="stop-color: black; stop-opacity: 0.6;" />
+    </radialGradient>
+  </defs>
+
+  <rect width="100%" height="100%" fill="transparent" />
+
+  <g opacity="0.4">
+    <path d="M 0 540 Q 480 0 960 540 T 1920 540" stroke="url(#grad1)" stroke-width="2" fill="none" />
+    <path d="M 0 540 Q 480 1080 960 540 T 1920 540" stroke="url(#grad1)" stroke-width="2" fill="none" />
+    <path d="M 0 540 Q 480 270 960 540 T 1920 540" stroke="url(#grad1)" stroke-width="1" fill="none" />
+    <path d="M 0 540 Q 480 810 960 540 T 1920 540" stroke="url(#grad1)" stroke-width="1" fill="none" />
+  </g>
+
+  <g stroke="black" stroke-width="1.5" fill="none" opacity="0.3">
+    <path d="M 1920 0 L 0 1080" />
+    <path d="M 0 0 L 1920 1080" />
+    <path d="M 960 0 L 960 1080" />
+    <path d="M 0 540 L 1920 540" />
+  </g>
+
+  <g transform="translate(960, 540) rotate(30)" stroke="black" stroke-width="1" fill="none">
+    <polygon points="-100,-100 100,-100 100,100 -100,100" opacity="0.15" />
+    <polygon points="-80,-80 80,-80 80,80 -80,80" opacity="0.2" />
+    <polygon points="-60,-60 60,-60 60,60 -60,60" opacity="0.25" />
+    <polygon points="-40,-40 40,-40 40,40 -40,40" opacity="0.3" />
+  </g>
+
+  <g transform="translate(480, 270) scale(0.8)" stroke="black" stroke-width="0.8" fill="none">
+    <circle cx="0" cy="0" r="180" opacity="0.1" />
+    <circle cx="0" cy="0" r="140" opacity="0.15" />
+    <circle cx="0" cy="0" r="100" opacity="0.2" />
+    <circle cx="0" cy="0" r="60" opacity="0.25" />
+  </g>
+
+  <g transform="translate(1440, 810) rotate(-45)" stroke="black" stroke-width="2" fill="none" opacity="0.3">
+    <path d="M -250 0 L 250 0 M 0 -250 L 0 250" />
+    <path d="M -180 -180 L 180 180 M 180 -180 L -180 180" stroke-width="1.5" opacity="0.8"/>
+  </g>
+
+  <g opacity="0.5">
+    <path d="M 960 540 C 1150 350, 1250 650, 1000 750 S 750 450, 960 540 Z" stroke="black" stroke-width="4" fill="none" />
+    <path d="M 960 540 C 770 730, 670 430, 920 330 S 1150 630, 960 540 Z" stroke="black" stroke-width="3" fill="none" />
+  </g>
+
+  <circle cx="250" cy="250" r="25" fill="black" opacity="0.5" />
+  <circle cx="1670" cy="830" r="18" fill="black" opacity="0.4" />
+  <circle cx="960" cy="150" r="12" fill="black" opacity="0.6" />
+  <circle cx="1500" cy="350" r="30" fill="black" opacity="0.3" />
+  <circle cx="450" cy="950" r="20" fill="black" opacity="0.45" />
+
+</svg>
