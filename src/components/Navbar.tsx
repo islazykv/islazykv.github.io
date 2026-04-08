@@ -43,7 +43,6 @@ export default function Navbar() {
           Igor Slazyk
         </button>
 
-        {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <button
@@ -63,7 +62,6 @@ export default function Navbar() {
             Resume
           </a>
 
-          {/* Theme toggle */}
           <button
             onClick={toggleTheme}
             className="p-2 rounded-lg text-text-muted hover:text-accent hover:bg-bg-card transition-colors cursor-pointer"
@@ -89,7 +87,6 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile: theme toggle + hamburger */}
         <div className="flex md:hidden items-center gap-2">
           <button
             onClick={toggleTheme}
@@ -130,7 +127,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div

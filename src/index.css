@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-/* ==========================================================================
-   Theme tokens — light & dark
-   ========================================================================== */
-
 @theme {
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
@@ -21,7 +17,6 @@
   --color-border-hover: var(--theme-border-hover);
 }
 
-/* Light theme (default) */
 :root,
 [data-theme="light"] {
   --theme-accent: #0d9488;
@@ -40,7 +35,6 @@
   --theme-bg-pattern-filter: none;
 }
 
-/* Dark theme */
 [data-theme="dark"] {
   --theme-accent: #2dd4bf;
   --theme-accent-hover: #5eead4;
@@ -57,10 +51,6 @@
   --theme-bg-pattern-opacity: 0.15;
   --theme-bg-pattern-filter: invert(1);
 }
-
-/* ==========================================================================
-   Base styles
-   ========================================================================== */
 
 html {
   scroll-behavior: smooth;

@@ -116,7 +116,6 @@ export default function Skills() {
 
   return (
     <Section id="skills" title="Skills">
-      {/* Tab bar */}
       <div className="grid grid-cols-5 mb-6 border-b border-border">
         {skillCategories.map((cat, i) => (
           <button
@@ -134,7 +133,6 @@ export default function Skills() {
         ))}
       </div>
 
-      {/* Content panel */}
       <div
         className="grid p-6 rounded-xl border border-border bg-bg-card"
         style={{ minHeight: '180px' }}

@@ -68,16 +68,13 @@ export default function Experience() {
   return (
     <Section id="experience" title="Experience">
       <div className="relative">
-        {/* Timeline line */}
         <div className="absolute left-[5px] top-3 bottom-3 w-px bg-border" />
 
         <div className="space-y-8">
           {experiences.map((exp, i) => (
             <div key={i} className="relative pl-8">
-              {/* Timeline dot */}
               <div className="absolute left-0 top-1.5 w-[11px] h-[11px] rounded-full border-2 border-text-faint bg-bg" />
 
-              {/* Role + Period */}
               <div className="flex items-baseline justify-between gap-4">
                 <h3 className="text-heading font-semibold text-base">{exp.role}</h3>
                 <span className="text-sm text-heading shrink-0 tabular-nums">
@@ -85,16 +82,13 @@ export default function Experience() {
                 </span>
               </div>
 
-              {/* Divider */}
               <div className="h-px bg-border mt-1.5 mb-1.5" />
 
-              {/* Company + Location */}
               <div className="flex items-baseline justify-between gap-4 mb-3">
                 <span className="text-sm text-accent font-medium">{exp.company}</span>
                 <span className="text-sm text-heading shrink-0">{exp.location}</span>
               </div>
 
-              {/* Points */}
               <ul className="space-y-1.5">
                 {exp.points.map((point, j) => (
                   <li key={j} className="text-sm text-text-muted flex items-start gap-3">

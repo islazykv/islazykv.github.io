@@ -1,8 +1,3 @@
-// =============================================================================
-// Design Tokens — layout, spacing, and motion
-// Colors are handled via CSS custom properties in index.css
-// =============================================================================
-
 export const spacing = {
   section: 'py-20 md:py-28 px-6',
   container: 'max-w-5xl mx-auto',
@@ -16,7 +11,6 @@ export const layout = {
   navbarZ: 'z-50',
 } as const
 
-// Framer Motion presets
 export const motion = {
   stagger: {
     hidden: {},

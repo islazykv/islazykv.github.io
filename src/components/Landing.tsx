@@ -49,7 +49,6 @@ export default function Landing() {
           </a>
         </motion.div>
 
-        {/* Social links */}
         <motion.div variants={m.fadeUp} className="flex items-center gap-5 mt-12">
           <a
             href="https://github.com/islazykv"

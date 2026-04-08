@@ -19,7 +19,6 @@ function ImageSlider({ images, title, delay }: { images: string[]; title: string
     <motion.div {...m.pageBlock(delay)}>
       <h2 className="font-serif text-xl font-semibold text-heading mb-4">Gallery</h2>
       <div className="relative rounded-xl border border-border overflow-hidden bg-bg-card">
-        {/* Image */}
         <div className="relative aspect-[16/9] overflow-hidden max-w-2xl mx-auto">
           <AnimatePresence mode="wait" custom={direction}>
             <motion.img
@@ -35,7 +34,6 @@ function ImageSlider({ images, title, delay }: { images: string[]; title: string
             />
           </AnimatePresence>
 
-          {/* Arrows */}
           <button
             onClick={() => go(-1)}
             className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-bg/80 border border-border text-heading flex items-center justify-center hover:border-accent transition-colors cursor-pointer"
@@ -50,7 +48,6 @@ function ImageSlider({ images, title, delay }: { images: string[]; title: string
           </button>
         </div>
 
-        {/* Caption + dots */}
         <div className="px-4 py-3 border-t border-border flex items-center justify-between">
           <span className="text-sm text-text-muted capitalize">{label}</span>
           <div className="flex gap-1.5">
@@ -99,7 +96,6 @@ export default function ProjectPage() {
   return (
     <div className="min-h-screen pt-24 pb-16 px-6">
       <div className={spacing.containerMd}>
-        {/* Back link */}
         <motion.div {...m.pageBlock(0)}>
           <button
             onClick={goBack}
@@ -109,7 +105,6 @@ export default function ProjectPage() {
           </button>
         </motion.div>
 
-        {/* Header */}
         <motion.div {...m.pageBlock(0.1)}>
           <h1 className="font-serif text-3xl md:text-5xl font-bold text-heading mb-2">
             {project.title}
@@ -117,7 +112,6 @@ export default function ProjectPage() {
           <p className="text-accent/70 mb-6">{project.subtitle}</p>
         </motion.div>
 
-        {/* Links */}
         {Object.keys(project.links).length > 0 && (
           <motion.div {...m.pageBlock(0.2)} className="flex flex-wrap gap-4 mb-10">
             {Object.entries(project.links).map(([key, url]) => (
@@ -134,13 +128,11 @@ export default function ProjectPage() {
           </motion.div>
         )}
 
-        {/* Description */}
         <motion.div {...m.pageBlock(0.3)} className="mb-10">
           <h2 className="font-serif text-xl font-semibold text-heading mb-4">Overview</h2>
           <p className="text-text leading-relaxed text-justify">{project.description}</p>
         </motion.div>
 
-        {/* Stack */}
         <motion.div {...m.pageBlock(0.4)} className="mb-10">
           <h2 className="font-serif text-xl font-semibold text-heading mb-4">Stack</h2>
           <div className="flex flex-wrap gap-2">
@@ -155,7 +147,6 @@ export default function ProjectPage() {
           </div>
         </motion.div>
 
-        {/* Images */}
         {project.images.length > 0 ? (
           <ImageSlider images={project.images} title={project.title} delay={0.5} />
         ) : (

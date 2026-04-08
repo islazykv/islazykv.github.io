@@ -3,7 +3,6 @@ export default function Footer() {
     <footer className="border-t border-border py-16 px-6">
       <div className="max-w-5xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
-          {/* Left — contact CTA */}
           <div>
             <h3 className="font-serif text-2xl font-bold text-heading mb-3">
               Let's connect
@@ -20,7 +19,6 @@ export default function Footer() {
             </a>
           </div>
 
-          {/* Right — links */}
           <div className="flex gap-8">
             <div>
               <h4 className="text-xs uppercase tracking-wider text-text-faint font-semibold mb-3">Links</h4>
