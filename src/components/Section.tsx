@@ -1,33 +1,31 @@
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import { useRef, type ReactNode } from 'react'
+import { spacing, motion as m } from '../theme'
 
 interface SectionProps {
   id: string
   title: string
   children: ReactNode
+  className?: string
 }
 
-export default function Section({ id, title, children }: SectionProps) {
+export default function Section({ id, title, children, className = '' }: SectionProps) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const isInView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section id={id} className="py-24 px-6">
-      <div ref={ref} className="max-w-5xl mx-auto">
+    <section id={id} className={`${spacing.section} ${className}`}>
+      <div ref={ref} className={spacing.container}>
         <motion.h2
-          initial={{ opacity: 0, x: -30 }}
-          animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="text-3xl font-bold text-white mb-12 flex items-center gap-4"
+          {...m.headingEnter}
+          animate={isInView ? m.headingEnter.animate : {}}
+          className="font-serif text-3xl md:text-4xl font-bold text-heading mb-12"
         >
-          <span className="text-primary-light">#</span> {title}
-          <span className="flex-1 h-px bg-dark-lighter" />
+          {title}
         </motion.h2>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          {...m.sectionEnter}
+          animate={isInView ? m.sectionEnter.animate : {}}
         >
           {children}
         </motion.div>
