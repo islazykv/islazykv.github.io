@@ -6,7 +6,7 @@ import {
   SiScikitlearn, SiPytorch, SiTensorflow, SiKeras,
   SiMlflow, SiDocker, SiGithubactions, SiFastapi, SiWeightsandbiases,
   SiHtml5, SiJavascript, SiReact,
-  SiKubernetes, SiUv, SiDvc, SiOptuna, SiDiagramsdotnet, SiLightning,
+  SiKubernetes, SiUv, SiDvc, SiOptuna, SiLightning,
 } from 'react-icons/si'
 import { FaDatabase, FaChartBar, FaCode, FaCss3Alt, FaProjectDiagram } from 'react-icons/fa'
 import { VscAzure, VscAzureDevops, VscGraphLine } from 'react-icons/vsc'
