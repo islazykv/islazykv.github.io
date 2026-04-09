@@ -170,14 +170,42 @@ export const projects: Project[] = [
       'Analyzed array performance via noise, dark count and threshold measurements',
       'Explored ML-based particle identification for the LHCb RICH detector',
     ],
-    tags: ['C++', 'Python', 'LabVIEW', 'Data Analysis'],
+    tags: [
+      { category: 'Language', items: ['Python', 'C++', 'LabVIEW'] },
+      { category: 'Data Processing', items: ['NumPy', 'pandas'] },
+      { category: 'Visualisation', items: ['Matplotlib', 'Seaborn'] },
+      { category: 'Machine Learning', items: ['scikit-learn'] },
+      { category: 'Environment', items: ['Jupyter Notebook'] },
+      { category: 'Physics', items: ['ROOT'] },
+    ],
+    cardTags: ['Python', 'C++', 'pandas', 'Matplotlib', 'scikit-learn', 'Jupyter'],
     links: {
       notebook: 'https://github.com/islazykv/elementary-cells',
       publication: 'https://arxiv.org/abs/2110.00831',
     },
     description:
-      'An automated quality assurance system for the elementary cells of the LHCb RICH detector upgrade. The project covered the full chain from hardware testing (noise, dark count rate, threshold scans) to data analysis and visualization, with initial exploration of machine learning methods for particle identification.',
-    images: [],
+      'Elementary Cell quality assurance for the LHCb RICH detector upgrade at CERN, providing automated characterisation of the new photon detection units.\n\nOriginally developed in Python/C++ with the CERN ROOT library during my PhD, the analysis was later rewritten in pure Python using NumPy, pandas, Matplotlib and Seaborn inside Jupyter notebooks. The workflow reads raw .txt measurement files, extracts the mapping and measurement data, and produces calibration parameters and diagnostic plots.\n\nFour analyses characterise the Elementary Cell — the new photon detection unit of the RICH detectors, built from Multi-Anode Photomultiplier Tubes (MaPMTs) and front-end electronics. These cover Signal Induced Noise (SIN), Digital-to-Analog Converter (DAC) scans, Dark Count Rate (DCR), and Threshold (THR) scans, each producing 2D heatmaps and 1D histograms of the extracted parameters.',
+    images: [
+      [
+        '/projects/elementary/sin_fraction_2d.png',
+        '/projects/elementary/sin_fraction_1d.png',
+      ],
+      '/projects/elementary/sin_spectrum.png',
+      [
+        '/projects/elementary/dac_s_curve.png',
+        '/projects/elementary/dac_noise.png',
+      ],
+      [
+        '/projects/elementary/dcr_counts_2d.png',
+        '/projects/elementary/dcr_counts_1d.png',
+      ],
+      [
+        '/projects/elementary/working_point_2d.png',
+        '/projects/elementary/working_point_1d.png',
+      ],
+      '/projects/elementary/threshold_spectrum.png',
+      '/projects/elementary/logistic_regression.png',
+    ],
   },
 ]
 
