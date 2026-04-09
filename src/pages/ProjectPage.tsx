@@ -1,10 +1,41 @@
-import { useState } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import { useParams, useNavigate } from 'react-router'
 import { motion, AnimatePresence } from 'framer-motion'
-import { projects, linkLabels } from '../data/projects'
+import { projects, linkLabels, type StackGroup } from '../data/projects'
 import { spacing, motion as m } from '../theme'
 
-function ImageSlider({ images, title, delay }: { images: string[]; title: string; delay: number }) {
+function renderInlineLinks(text: string): ReactNode[] {
+  const parts: ReactNode[] = []
+  const regex = /\[([^\]]+)\]\(([^)]+)\)/g
+  let lastIndex = 0
+  let match: RegExpExecArray | null
+  let key = 0
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index))
+    }
+    parts.push(
+      <a
+        key={key++}
+        href={match[2]}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-accent hover:text-accent-hover underline-offset-2 hover:underline transition-colors"
+      >
+        {match[1]}
+      </a>
+    )
+    lastIndex = match.index + match[0].length
+  }
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex))
+  }
+  return parts
+}
+
+type Slide = string | string[] | { images: string[]; direction: 'row' | 'col' }
+
+function ImageSlider({ images, title, delay }: { images: Slide[]; title: string; delay: number }) {
   const [current, setCurrent] = useState(0)
   const [direction, setDirection] = useState(0)
 
@@ -13,25 +44,45 @@ function ImageSlider({ images, title, delay }: { images: string[]; title: string
     setCurrent((prev) => (prev + dir + images.length) % images.length)
   }
 
-  const label = images[current].split('/').pop()?.replace(/\.\w+$/, '').replace(/_/g, ' ')
+  const slide = images[current]
+  const slideImages =
+    typeof slide === 'string' ? [slide] : Array.isArray(slide) ? slide : slide.images
+  const slideDirection: 'row' | 'col' =
+    typeof slide === 'string' || Array.isArray(slide) ? 'row' : slide.direction
+  const isPair = slideImages.length > 1
+  const isVertical = isPair && slideDirection === 'col'
+  const labelFor = (src: string) =>
+    src.split('/').pop()?.replace(/\.\w+$/, '').replace(/_/g, ' ') ?? ''
+  const label = slideImages.map(labelFor).join(' · ')
 
   return (
     <motion.div {...m.pageBlock(delay)}>
       <h2 className="font-serif text-xl font-semibold text-heading mb-4">Gallery</h2>
       <div className="relative rounded-xl border border-border overflow-hidden bg-bg-card">
-        <div className="relative aspect-[16/9] overflow-hidden max-w-2xl mx-auto">
+        <div className="relative aspect-[2/1] overflow-hidden mx-auto max-w-4xl">
           <AnimatePresence mode="wait" custom={direction}>
-            <motion.img
+            <motion.div
               key={current}
-              src={images[current]}
-              alt={`${title} - ${label}`}
               custom={direction}
               initial={{ opacity: 0, x: direction * 50 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: direction * -50 }}
               transition={{ duration: 0.25 }}
-              className="absolute inset-0 w-full h-full object-contain p-4"
-            />
+              className={`absolute inset-0 flex items-center justify-center gap-2 p-4 ${isVertical ? 'flex-col' : 'flex-row'}`}
+            >
+              {slideImages.map((src) => (
+                <img
+                  key={src}
+                  src={src}
+                  alt={`${title} - ${labelFor(src)}`}
+                  className={
+                    isVertical
+                      ? 'max-w-full max-h-full object-contain flex-1 min-h-0'
+                      : `max-w-full object-contain flex-1 min-w-0 ${isPair ? 'max-h-[85%]' : 'max-h-full'}`
+                  }
+                />
+              ))}
+            </motion.div>
           </AnimatePresence>
 
           <button
@@ -71,6 +122,10 @@ export default function ProjectPage() {
   const { slug } = useParams()
   const navigate = useNavigate()
   const project = projects.find((p) => p.slug === slug)
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [slug])
 
   const goBack = () => {
     navigate('/')
@@ -128,23 +183,65 @@ export default function ProjectPage() {
           </motion.div>
         )}
 
+        {project.points.length > 0 && (
+          <motion.div {...m.pageBlock(0.25)} className="mb-10">
+            <h2 className="font-serif text-xl font-semibold text-heading mb-4">Highlights</h2>
+            <ul className="space-y-2">
+              {project.points.map((point, i) => (
+                <li key={i} className="text-text flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0" />
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+
         <motion.div {...m.pageBlock(0.3)} className="mb-10">
           <h2 className="font-serif text-xl font-semibold text-heading mb-4">Overview</h2>
-          <p className="text-text leading-relaxed text-justify">{project.description}</p>
+          <div className="space-y-4">
+            {project.description.split('\n\n').map((paragraph, i) => (
+              <p key={i} className="text-text leading-relaxed text-justify">
+                {renderInlineLinks(paragraph)}
+              </p>
+            ))}
+          </div>
         </motion.div>
 
         <motion.div {...m.pageBlock(0.4)} className="mb-10">
           <h2 className="font-serif text-xl font-semibold text-heading mb-4">Stack</h2>
-          <div className="flex flex-wrap gap-2">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-3 py-1 text-sm rounded-md border border-border text-text-muted"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
+          {typeof project.tags[0] === 'string' ? (
+            <div className="flex flex-wrap gap-2">
+              {(project.tags as string[]).map((tag) => (
+                <span
+                  key={tag}
+                  className="px-3 py-1 text-sm rounded-md border border-border text-text-muted"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          ) : (
+            <div className="space-y-3">
+              {(project.tags as StackGroup[]).map((group) => (
+                <div key={group.category} className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4">
+                  <div className="text-sm font-medium text-text sm:w-56 sm:shrink-0 sm:pt-1">
+                    {group.category}
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {group.items.map((item) => (
+                      <span
+                        key={item}
+                        className="px-3 py-1 text-sm rounded-md border border-border text-text-muted"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </motion.div>
 
         {project.images.length > 0 ? (

@@ -18,18 +18,16 @@ export default function Projects() {
             <p className="text-xs text-accent/70 mb-3">
               {project.subtitle}
             </p>
-
-            <ul className="space-y-1.5 mb-4">
-              {project.points.map((point, j) => (
-                <li key={j} className="text-sm text-text-muted flex items-start gap-3">
-                  <span className="w-1 h-1 rounded-full bg-accent mt-2 shrink-0" />
-                  {point}
-                </li>
-              ))}
-            </ul>
+            <p className="text-sm text-text-muted mb-4 text-justify">
+              {project.tagline}
+            </p>
 
             <div className="flex flex-wrap gap-1.5 mb-3">
-              {project.tags.map((tag) => (
+              {(project.cardTags
+                ?? (typeof project.tags[0] === 'string'
+                  ? (project.tags as string[])
+                  : (project.tags as { category: string; items: string[] }[]).flatMap((g) => g.items))
+              ).map((tag) => (
                 <span
                   key={tag}
                   className="text-xs px-2 py-0.5 rounded border border-border text-text-faint"
