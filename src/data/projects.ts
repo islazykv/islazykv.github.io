@@ -30,10 +30,10 @@ export const projects: Project[] = [
     tags: [
       { category: 'Language', items: ['Python'] },
       { category: 'Data Processing', items: ['uproot', 'awkward-array', 'NumPy', 'SciPy', 'pandas', 'Numba', 'Pandera'] },
-      { category: 'Visualisation', items: ['Matplotlib', 'Seaborn', 'Plotly'] },
+      { category: 'Visualization', items: ['Matplotlib', 'Seaborn', 'Plotly'] },
       { category: 'Machine Learning', items: ['XGBoost', 'PyTorch', 'scikit-learn', 'Optuna', 'SHAP'] },
       { category: 'Infrastructure', items: ['Docker', 'uv', 'GitHub Actions'] },
-      { category: 'Configuration & Reproducibility', items: ['Hydra', 'OmegaConf', 'DVC', 'MLflow'] },
+      { category: 'Configuration & Tracking', items: ['Hydra', 'OmegaConf', 'DVC', 'MLflow'] },
       { category: 'Serving / API', items: ['FastAPI', 'Uvicorn', 'Pydantic'] },
       { category: 'Testing & QA', items: ['pytest', 'pytest-cov', 'mypy', 'Ruff', 'pre-commit'] },
       { category: 'Physics', items: ['pyhf', 'atlas-mpl-style'] },
@@ -45,7 +45,7 @@ export const projects: Project[] = [
       publication: 'https://arxiv.org/abs/2507.00296',
     },
     description:
-      'Supersymmetry search with tau leptons in CERN ATLAS data using supervised machine learning for multiclass-classification of background and signal events.\n\nBuilt on ATLAS Run 2 & Run 3 data, this project implements a full ML pipeline — from ROOT ntuples to signal region optimization — using XGBoost Boosted Decision Trees (BDTs) and PyTorch Deep Neural Networks (DNNs).\n\nTo conduct this search, the models were trained on both background and signal events, allowing potential SUSY signatures to be isolated via multiclass classification. Unfortunately, no SUSY signals were observed in the experimental data.',
+      'Supersymmetry search with tau leptons in CERN ATLAS data using supervised machine learning for multiclass classification of background and signal events.\n\nThis project implements a full ML pipeline — from raw data processing to signal region optimization — using XGBoost Boosted Decision Trees (BDTs) and PyTorch Deep Neural Networks (DNNs). Hyperparameter tuning is handled by Optuna, with experiment tracking managed through MLflow.\n\nThe models were trained on both background and signal events, allowing potential supersymmetry signatures to be isolated via multiclass classification. Unfortunately, no signals were observed in the experimental data.',
     images: [
       '/projects/supersymmetry/feature_distributions.png',
       '/projects/supersymmetry/training_curves.png',
@@ -76,7 +76,7 @@ export const projects: Project[] = [
     tags: [
       { category: 'Language', items: ['Python'] },
       { category: 'Data Processing', items: ['uproot', 'awkward-array', 'NumPy', 'SciPy', 'pandas', 'Pandera'] },
-      { category: 'Visualisation', items: ['Matplotlib', 'Seaborn'] },
+      { category: 'Visualization', items: ['Matplotlib', 'Seaborn'] },
       { category: 'Machine Learning', items: ['PyTorch', 'PyTorch Lightning', 'torchmetrics', 'torcheval', 'scikit-learn', 'Ray Tune'] },
       { category: 'Infrastructure', items: ['Docker', 'uv', 'GitHub Actions'] },
       { category: 'Configuration & Tracking', items: ['Hydra', 'OmegaConf', 'Weights & Biases'] },
@@ -90,7 +90,7 @@ export const projects: Project[] = [
       notebook: 'https://github.com/islazykv/tau-anomaly-detection/blob/main/notebooks/00_overview.ipynb',
     },
     description:
-      'Anomaly detection with tau leptons in CERN ATLAS data using unsupervised machine learning for the identification of signal events.\n\nBuilt on ATLAS Run 2 & Run 3 data, this project implements a full ML pipeline — from ROOT ntuples to anomaly scoring — using PyTorch Autoencoders (AE) and Variational Autoencoders (VAE).\n\nTo initially evaluate the models\' capabilities, they are trained exclusively on background events, allowing signal mass points to be identified as anomalies via high reconstruction errors. If these initial tests prove promising, the models will be deployed on real experimental data.',
+      'Anomaly detection with tau leptons in CERN ATLAS data using unsupervised machine learning for the identification of signal events.\n\nThis project implements a full ML pipeline — from raw data processing to anomaly scoring — using PyTorch Autoencoders (AE) and Variational Autoencoders (VAE). Model training is managed with PyTorch Lightning, hyperparameter tuning with Ray Tune, and experiment tracking with Weights & Biases.\n\nTo evaluate the models\' capabilities, they are trained exclusively on background events, allowing signal mass points to be identified as anomalies via high reconstruction errors. If these initial tests prove promising, the models will be deployed on real experimental data.',
     images: [
       '/projects/anomaly/reconstruction_error.png',
       [
@@ -116,49 +116,79 @@ export const projects: Project[] = [
     slug: 'tau-energy-scale',
     title: 'Tau Energy Scale',
     subtitle: 'Mixture Density Network | Neural Networks',
-    tagline: 'Tau energy calibration with uncertainty estimation using probabilistic deep learning. Built on Mixture Density Networks. Predicts both the energy correction and its associated uncertainty.',
+    tagline: 'Tau energy calibration with uncertainty estimation using probabilistic deep learning. Predicts both the energy correction and its associated uncertainty.',
     points: [
       'Developed a probabilistic regression model with uncertainty estimation',
       'Trained with Huber loss pretraining and NLL fine-tuning for density estimation',
       'Evaluated model performance with energy response and resolution histograms',
     ],
-    tags: ['Python', 'PyTorch', 'MDN', 'Regression'],
+    tags: [
+      { category: 'Language', items: ['Python'] },
+      { category: 'Data Processing', items: ['uproot', 'awkward-array', 'NumPy', 'SciPy', 'h5py'] },
+      { category: 'Visualization', items: ['Matplotlib', 'Seaborn'] },
+      { category: 'Machine Learning', items: ['TensorFlow', 'TensorFlow Probability', 'scikit-learn', 'Optuna'] },
+      { category: 'Configuration & Tracking', items: ['OmegaConf', 'Pydantic'] },
+      { category: 'Testing & QA', items: ['pytest'] },
+    ],
+    cardTags: ['Python', 'TensorFlow', 'Optuna'],
     links: {},
     description:
-      'A probabilistic approach to tau lepton energy calibration using Mixture Density Networks. The project focused on predicting not just the energy scale correction but also the associated uncertainty, using a combination of Huber loss for robust initial training and negative log-likelihood fine-tuning for the full probabilistic model.',
+      'A probabilistic approach to tau lepton energy calibration using Mixture Density Networks, predicting both the energy scale correction and its associated uncertainty.\n\nThe model combines Huber loss for robust initial pretraining with negative log-likelihood fine-tuning for the full probabilistic density estimation. Hyperparameter optimization is performed with Optuna to find the best network architecture and training configuration.\n\nPerformance is evaluated through energy response and resolution histograms, comparing the MDN calibration against baseline approaches across different kinematic regions.',
     images: [],
   },
   {
     slug: 'sphalerons-and-black-holes',
     title: 'Sphalerons and Black Holes',
     subtitle: 'Convolutional Neural Network | Boosted Decision Trees',
-    tagline: 'Sphaleron and black hole event search at the LHC using deep learning. Built on Convolutional Neural Networks and Boosted Decision Trees. Compares raw detector images with high-level feature representations.',
+    tagline: 'Sphaleron and black hole event search at the LHC using deep learning. Compares convolutional networks on raw detector images against decision trees on high-level features.',
     points: [
       'Optimized high-capacity models to classify rare high-multiplicity LHC events',
       'Developed a pipeline mapping detector signals into three-layer event images',
       'Compared high-level features with raw pixel data to maximize signal sensitivity',
     ],
-    tags: ['Python', 'TensorFlow', 'CNN', 'XGBoost'],
+    tags: [
+      { category: 'Language', items: ['Python'] },
+      { category: 'Data Processing', items: ['NumPy', 'pandas'] },
+      { category: 'Visualization', items: ['Matplotlib', 'Seaborn'] },
+      { category: 'Machine Learning', items: ['XGBoost', 'PyTorch', 'ResNet18', 'scikit-learn'] },
+      { category: 'Simulation', items: ['Herwig 7', 'Delphes 3'] },
+      { category: 'Physics', items: ['ROOT'] },
+    ],
+    cardTags: ['Python', 'XGBoost', 'PyTorch', 'ResNet18'],
     links: { publication: 'https://arxiv.org/abs/2310.15227' },
     description:
-      'Classification of rare sphaleron and black hole events at the LHC using both image-based CNNs and feature-based BDTs. The project involved transforming detector hit patterns into multi-layer images suitable for convolutional networks, and systematically comparing the performance of deep learning on raw pixel data versus traditional approaches using hand-crafted high-level features.',
-    images: [],
+      'Search for sphaleron and black hole production at the LHC using deep learning for the classification of rare high-multiplicity events against Standard Model backgrounds.\n\nBuilt on simulated proton-proton collisions at 13 TeV, this project applies deep learning — from raw detector signals to event classification — using PyTorch ResNet18 Convolutional Neural Networks (CNNs) and XGBoost Boosted Decision Trees (BDTs).\n\nTo compare approaches, detector signals were mapped into multi-layer event images as CNN inputs, while BDTs were trained on both high-level reconstructed features and low-level observables. The image-based CNN achieved the strongest signal sensitivity, showing that deep learning can extract more information from raw detector data than traditional feature-based classifiers.',
+    images: [
+      '/projects/black_holes/distributions.png',
+      '/projects/black_holes/confusion_matrices.png',
+      '/projects/black_holes/exclusion_p-values.png',
+    ],
   },
   {
     slug: 'di-tau-reconstruction',
     title: 'Di-Tau Reconstruction',
     subtitle: 'Software Development | Data Science',
-    tagline: 'Boosted di-tau reconstruction studies at the LHC using a C++ analysis framework. Benchmarks subjet algorithms and seed jet collections to optimise reconstruction efficiency.',
+    tagline: 'Boosted di-tau reconstruction studies at the LHC using a C++ analysis framework. Benchmarks subjet algorithms and seed jet collections to optimize reconstruction efficiency.',
     points: [
       'Engineered a C++ analysis framework for boosted di-tau reconstruction studies',
       'Benchmarked fixed & variable radius subjets to optimize reconstruction efficiency',
       'Evaluated diverse seed jet collections to establish baseline configurations',
     ],
-    tags: ['C++', 'ROOT', 'Data Analysis'],
+    tags: [
+      { category: 'Language', items: ['C++'] },
+      { category: 'Framework', items: ['Athena', 'FastJet'] },
+      { category: 'Data Processing', items: ['ROOT'] },
+      { category: 'Simulation', items: ['MadGraph', 'Pythia8', 'EvtGen'] },
+    ],
+    cardTags: ['C++'],
     links: { note: 'https://islazykv.github.io/islazykv/pdfs/Di-Tau-Note.pdf' },
     description:
-      'A C++ analysis framework for studying the reconstruction of boosted di-tau systems at the LHC. The project systematically benchmarked different subjet algorithms (fixed vs variable radius) and seed jet collections to determine optimal configurations for identifying tau pairs from highly boosted parent particles.',
-    images: [],
+      'Boosted di-tau reconstruction studies at CERN ATLAS, focused on identifying optimal jet algorithms for highly collimated tau pairs produced in heavy resonance decays.\n\nBuilt in C++ on top of the ATLAS Athena framework, this project adapts the existing di-tau reconstruction configuration and leverages the FastJet library to cluster subjets inside large-radius jets.\n\nMultiple jet algorithms and reconstruction strategies are benchmarked across a range of working points and mass scales to identify the configuration that best captures tau decay products in densely populated, high-momentum regimes.',
+    images: [
+      '/projects/di_tau/distribution_seed_jet_pt.png',
+      '/projects/di_tau/tight_efficiency_ditau_pt.png',
+      '/projects/di_tau/tight_efficiency_delta_r.png',
+    ],
   },
   {
     slug: 'elementary-cells',
@@ -171,20 +201,19 @@ export const projects: Project[] = [
       'Explored ML-based particle identification for the LHCb RICH detector',
     ],
     tags: [
-      { category: 'Language', items: ['Python', 'C++', 'LabVIEW'] },
+      { category: 'Language', items: ['C++', 'Python', 'LabVIEW'] },
       { category: 'Data Processing', items: ['NumPy', 'pandas'] },
-      { category: 'Visualisation', items: ['Matplotlib', 'Seaborn'] },
+      { category: 'Visualization', items: ['Matplotlib', 'Seaborn'] },
       { category: 'Machine Learning', items: ['scikit-learn'] },
-      { category: 'Environment', items: ['Jupyter Notebook'] },
       { category: 'Physics', items: ['ROOT'] },
     ],
-    cardTags: ['Python', 'C++', 'pandas', 'Matplotlib', 'scikit-learn', 'Jupyter'],
+    cardTags: ['C++', 'Python', 'pandas', 'Seaborn', 'scikit-learn'],
     links: {
-      notebook: 'https://github.com/islazykv/elementary-cells',
+      repository: 'https://github.com/islazykv/elementary-cells',
       publication: 'https://arxiv.org/abs/2110.00831',
     },
     description:
-      'Elementary Cell quality assurance for the LHCb RICH detector upgrade at CERN, providing automated characterisation of the new photon detection units.\n\nOriginally developed in Python/C++ with the CERN ROOT library during my PhD, the analysis was later rewritten in pure Python using NumPy, pandas, Matplotlib and Seaborn inside Jupyter notebooks. The workflow reads raw .txt measurement files, extracts the mapping and measurement data, and produces calibration parameters and diagnostic plots.\n\nFour analyses characterise the Elementary Cell — the new photon detection unit of the RICH detectors, built from Multi-Anode Photomultiplier Tubes (MaPMTs) and front-end electronics. These cover Signal Induced Noise (SIN), Digital-to-Analog Converter (DAC) scans, Dark Count Rate (DCR), and Threshold (THR) scans, each producing 2D heatmaps and 1D histograms of the extracted parameters.',
+      'Elementary Cell quality assurance for the LHCb RICH detector upgrade at CERN, providing automated characterization of the new photon detection units.\n\nOriginally developed during my PhD and later rewritten as a pure Python analysis, the workflow reads raw measurement files, extracts mapping and measurement data, and produces calibration parameters and diagnostic plots.\n\nFour analyses characterize the Elementary Cell — covering Signal Induced Noise, DAC scans, Dark Count Rate, and Threshold scans — each producing 2D heatmaps and 1D histograms of the extracted parameters.',
     images: [
       [
         '/projects/elementary/sin_fraction_2d.png',
@@ -211,7 +240,7 @@ export const projects: Project[] = [
 
 export const linkLabels: Record<string, string> = {
   repository: 'Repository',
-  notebook: 'Notebook',
+  notebook: 'Notebook Showcase',
   publication: 'Publication',
   note: 'Note',
 }

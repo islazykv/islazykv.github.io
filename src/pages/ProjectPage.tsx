@@ -167,21 +167,24 @@ export default function ProjectPage() {
           <p className="text-accent/70 mb-6">{project.subtitle}</p>
         </motion.div>
 
-        {Object.keys(project.links).length > 0 && (
-          <motion.div {...m.pageBlock(0.2)} className="flex flex-wrap gap-4 mb-10">
-            {Object.entries(project.links).map(([key, url]) => (
-              <a
-                key={key}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2 text-sm border border-border text-text-muted rounded-lg hover:border-accent hover:text-accent transition-colors"
-              >
-                {linkLabels[key] || key} &rarr;
-              </a>
-            ))}
-          </motion.div>
-        )}
+        <motion.div {...m.pageBlock(0.2)} className="flex flex-wrap gap-4 mb-10">
+          {!project.links.repository && !project.links.notebook && !project.links.publication && (
+            <span className="px-4 py-2 text-sm border border-border text-text-faint rounded-lg">
+              Internal Project
+            </span>
+          )}
+          {Object.entries(project.links).map(([key, url]) => (
+            <a
+              key={key}
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 text-sm border border-border text-text-muted rounded-lg hover:border-accent hover:text-accent transition-colors"
+            >
+              {linkLabels[key] || key} &rarr;
+            </a>
+          ))}
+        </motion.div>
 
         {project.points.length > 0 && (
           <motion.div {...m.pageBlock(0.25)} className="mb-10">
@@ -244,15 +247,8 @@ export default function ProjectPage() {
           )}
         </motion.div>
 
-        {project.images.length > 0 ? (
+        {project.images.length > 0 && (
           <ImageSlider images={project.images} title={project.title} delay={0.5} />
-        ) : (
-          <motion.div
-            {...m.pageBlock(0.5)}
-            className="p-8 border border-dashed border-border rounded-xl text-center text-text-faint"
-          >
-            Images and visualizations coming soon.
-          </motion.div>
         )}
       </div>
     </div>

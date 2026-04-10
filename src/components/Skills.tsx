@@ -6,7 +6,7 @@ import {
   SiScikitlearn, SiPytorch, SiTensorflow, SiKeras,
   SiMlflow, SiDocker, SiGithubactions, SiFastapi, SiWeightsandbiases,
   SiHtml5, SiJavascript, SiReact,
-  SiKubernetes, SiUv, SiDvc, SiOptuna, SiLightning,
+  SiKubernetes, SiUv, SiDvc, SiOptuna, SiLightning, SiDatabricks,
 } from 'react-icons/si'
 import { FaDatabase, FaChartBar, FaCode, FaCss3Alt, FaProjectDiagram } from 'react-icons/fa'
 import { VscAzure, VscAzureDevops, VscGraphLine } from 'react-icons/vsc'
@@ -107,6 +107,7 @@ const skillCategories: { name: string; skills: { name: string; icon?: IconType; 
       { name: 'Kubernetes', icon: SiKubernetes, url: 'https://kubernetes.io' },
       { name: 'Azure ML', icon: VscAzure, url: 'https://azure.microsoft.com/en-us/products/machine-learning' },
       { name: 'Azure DevOps Pipelines', icon: VscAzureDevops, url: 'https://azure.microsoft.com/en-us/products/devops/pipelines' },
+      { name: 'Databricks', icon: SiDatabricks, url: 'https://www.databricks.com' },
     ],
   },
 ]
@@ -116,12 +117,12 @@ export default function Skills() {
 
   return (
     <Section id="skills" title="Skills">
-      <div className="grid grid-cols-5 mb-6 border-b border-border">
+      <div className="flex flex-wrap justify-center mb-6 border-b border-border md:grid md:grid-cols-5">
         {skillCategories.map((cat, i) => (
           <button
             key={cat.name}
             onClick={() => setActiveTab(i)}
-            className="relative px-4 py-2.5 text-sm font-medium transition-colors rounded-t-lg text-center cursor-pointer"
+            className="relative px-4 py-2.5 text-sm font-medium transition-colors rounded-t-lg text-center cursor-pointer md:w-auto"
             style={{
               color: activeTab === i ? 'var(--theme-accent)' : 'var(--theme-text-muted)',
               backgroundColor: activeTab === i ? 'var(--theme-bg-card)' : 'transparent',

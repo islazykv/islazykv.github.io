@@ -37,23 +37,24 @@ export default function Projects() {
               ))}
             </div>
 
-            {Object.keys(project.links).length > 0 && (
-              <div className="flex flex-wrap gap-3 pt-2 border-t border-border">
-                {Object.entries(project.links).map(([key, url]) => (
-                  <span
-                    key={key}
-                    onClick={(e) => {
-                      e.preventDefault()
-                      e.stopPropagation()
-                      window.open(url, '_blank')
-                    }}
-                    className="text-xs text-accent hover:text-accent-hover cursor-pointer"
-                  >
-                    {linkLabels[key] || key} &rarr;
-                  </span>
-                ))}
-              </div>
-            )}
+            <div className="flex flex-wrap gap-3 pt-2 border-t border-border items-center">
+              {!project.links.repository && !project.links.notebook && !project.links.publication && (
+                <span className="text-xs text-text-faint">Internal Project</span>
+              )}
+              {Object.entries(project.links).map(([key, url]) => (
+                <span
+                  key={key}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    e.stopPropagation()
+                    window.open(url, '_blank')
+                  }}
+                  className="text-xs text-accent hover:text-accent-hover cursor-pointer"
+                >
+                  {linkLabels[key] || key} &rarr;
+                </span>
+              ))}
+            </div>
           </Link>
         ))}
       </div>
