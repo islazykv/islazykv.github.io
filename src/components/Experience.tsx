@@ -19,7 +19,7 @@ const experiences = [
     role: 'Affiliated Researcher (ATLAS)',
     company: 'CERN',
     location: 'Geneve, Switzerland',
-    period: '01.2022 - 03.2026',
+    period: '01.2022 - 12.2025',
     points: [
       'Software development within the ATLAS experiment framework (Athena)',
       'Development of TauCP software for tau particle reconstruction and identification',
@@ -32,7 +32,7 @@ const experiences = [
     role: 'Affiliated Researcher (LHCb)',
     company: 'CERN',
     location: 'Geneve, Switzerland',
-    period: '01.2018 - 03.2021',
+    period: '12.2017 - 03.2021',
     points: [
       'Software development for automated quality assurance of RICH detector modules',
       'Data analysis of quality assurance results for elementary detector cells',
