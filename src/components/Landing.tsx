@@ -24,6 +24,8 @@ export default function Landing() {
           variants={m.fadeUp}
           className="text-accent text-sm md:text-base mb-10 tracking-wide uppercase"
         >
+          <span className="text-lg md:text-xl">P</span>ython / 
+          {' '}
           <span className="text-lg md:text-xl">M</span>achine
           {' '}
           <span className="text-lg md:text-xl">L</span>earning
