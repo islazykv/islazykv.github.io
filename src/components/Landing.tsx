@@ -24,8 +24,6 @@ export default function Landing() {
           variants={m.fadeUp}
           className="text-accent text-sm md:text-base mb-10 tracking-wide uppercase"
         >
-          <span className="text-lg md:text-xl">P</span>ython / 
-          {' '}
           <span className="text-lg md:text-xl">M</span>achine
           {' '}
           <span className="text-lg md:text-xl">L</span>earning
@@ -42,7 +40,7 @@ export default function Landing() {
             View my work
           </a>
           <a
-            href="/Resume_ISlazyk.pdf"
+            href="/Resume_ISlazyk_Portfolio.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-3 border border-border text-text-muted rounded-lg hover:border-accent hover:text-accent transition-colors text-sm font-medium"

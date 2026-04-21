@@ -54,7 +54,7 @@ export default function Navbar() {
             </button>
           ))}
           <a
-            href="/Resume_ISlazyk.pdf"
+            href="/Resume_ISlazyk_Portfolio.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-text-muted hover:text-accent transition-colors"
@@ -146,7 +146,7 @@ export default function Navbar() {
               ))}
               <li>
                 <a
-                  href="/Resume_ISlazyk.pdf"
+                  href="/Resume_ISlazyk_Portfolio.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-text-muted hover:text-accent transition-colors"
