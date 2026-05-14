@@ -24,11 +24,15 @@ export default function Landing() {
           variants={m.fadeUp}
           className="text-accent text-sm md:text-base mb-10 tracking-wide uppercase"
         >
-          <span className="text-lg md:text-xl">M</span>achine
-          {' '}
-          <span className="text-lg md:text-xl">L</span>earning
+          <span className="text-lg md:text-xl">ML</span>
           {' '}
           <span className="text-lg md:text-xl">E</span>ngineer
+          {' '}
+          |
+          {' '}
+          <span className="text-lg md:text-xl">D</span>ata
+          {' '}
+          <span className="text-lg md:text-xl">S</span>cientist
         </motion.p>
 
         <motion.div variants={m.fadeUp} className="flex flex-wrap items-center gap-5">
@@ -40,7 +44,7 @@ export default function Landing() {
             View my work
           </a>
           <a
-            href="/Resume_ISlazyk_Portfolio.pdf"
+            href="/CV_Igor_Slazyk_Portfolio.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-3 border border-border text-text-muted rounded-lg hover:border-accent hover:text-accent transition-colors text-sm font-medium"
