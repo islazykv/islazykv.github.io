@@ -2,10 +2,10 @@ import Section from './Section'
 
 const experiences = [
   {
-    role: 'Postdoctoral Research Fellow',
+    role: 'Postdoctoral Researcher in ML',
     company: 'Hogskulen pa Vestlandet',
     location: 'Bergen, Norway',
-    period: '01.2022 - currently',
+    period: '01.2022 - 05.2026',
     points: [
       'Development of ML models for data analysis in high-energy physics',
       'Design and implementation of scalable end-to-end ML pipelines',
