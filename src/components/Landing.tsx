@@ -32,7 +32,7 @@ export default function Landing() {
           {' '}
           <span className="text-lg md:text-xl">D</span>ata
           {' '}
-          <span className="text-lg md:text-xl">S</span>cientist
+          <span className="text-lg md:text-xl">E</span>ngineer
         </motion.p>
 
         <motion.div variants={m.fadeUp} className="flex flex-wrap items-center gap-5">

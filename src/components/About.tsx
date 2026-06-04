@@ -19,10 +19,11 @@ export default function About() {
             That shift landed me in rainy but beautiful Bergen in Norway, where I could dedicate my work entirely to implementing machine learning solutions.
           </p>
           <p>
-            Today, my expertise revolves around designing scalable, end-to-end ML pipelines and MLOps workflows - 
-            from data ingestion and feature engineering to model training, evaluation and deployment.
+            Today, my work lives at the intersection of data engineering and machine learning -
+            designing scalable, end-to-end data and ML pipelines, from raw ingestion and feature engineering
+            to model training, evaluation and deployment.
             Bringing together <strong className="text-heading font-semibold">8 years of data science</strong> experience,
-            including <strong className="text-heading font-semibold">4 years focused strictly on machine learning</strong>,
+            including <strong className="text-heading font-semibold">4 years focused on machine learning</strong>,
             I am now looking to take these skills into industry and tackle real-world problems at scale.
           </p>
         </div>

@@ -23,8 +23,8 @@ export const projects: Project[] = [
     subtitle: 'Boosted Decision Trees | Neural Networks',
     tagline: 'Supersymmetry search with taus using supervised machine learning. Built on Boosted Decision Trees and Deep Neural Networks. Isolates SUSY signatures from Standard Model backgrounds via multiclass classification.',
     points: [
-      'Developed a supervised ML pipeline for multiclass classification with MLflow',
-      'Trained and optimized classifiers with Optuna tuning',
+      'Developed a supervised ML pipeline for multiclass classification, tracked with MLflow',
+      'Trained and optimized classifiers with hyperparameter tuning via Optuna',
       'Implemented ML-based regions construction and statistical hypothesis testing',
     ],
     tags: [
@@ -69,8 +69,8 @@ export const projects: Project[] = [
     subtitle: 'Autoencoder | Variational Autoencoder',
     tagline: 'Anomaly detection with taus using unsupervised machine learning. Built on Autoencoders and Variational Autoencoders. Flags anomalous tau signatures through reconstruction error scoring and latent space analysis.',
     points: [
-      'Developed an unsupervised ML pipeline for anomaly detection with W&B',
-      'Trained and optimized models with Ray Tune tuning',
+      'Developed an unsupervised ML pipeline for anomaly detection, tracked with W&B',
+      'Trained and optimized models with hyperparameter tuning via Ray Tune',
       'Implemented reconstruction error anomaly scoring and latent space analysis',
     ],
     tags: [
@@ -142,8 +142,8 @@ export const projects: Project[] = [
     subtitle: 'Convolutional Neural Network | Boosted Decision Trees',
     tagline: 'Sphaleron and black hole event search at the LHC using deep learning. Compares convolutional networks on raw detector images against decision trees on high-level features.',
     points: [
-      'Optimized high-capacity models to classify rare high-multiplicity LHC events',
-      'Developed a pipeline mapping detector signals into three-layer event images',
+      'Optimized high-capacity models to classify rare, low frequency events',
+      'Built a pipeline encoding raw detector signals as multi-channel images for CNN input',
       'Compared high-level features with raw pixel data to maximize signal sensitivity',
     ],
     tags: [
@@ -170,9 +170,9 @@ export const projects: Project[] = [
     subtitle: 'Software Development | Data Science',
     tagline: 'Boosted di-tau reconstruction studies at the LHC using a C++ analysis framework. Benchmarks subjet algorithms and seed jet collections to optimize reconstruction efficiency.',
     points: [
-      'Engineered a C++ analysis framework for boosted di-tau reconstruction studies',
-      'Benchmarked fixed & variable radius subjets to optimize reconstruction efficiency',
-      'Evaluated diverse seed jet collections to establish baseline configurations',
+      'Engineered a C++ analysis framework for large-scale physics reconstruction studies',
+      'Benchmarked multiple algorithm configurations to optimize reconstruction efficiency',
+      'Evaluated input variations to establish performance baselines',
     ],
     tags: [
       { category: 'Language', items: ['C++'] },
@@ -196,9 +196,9 @@ export const projects: Project[] = [
     subtitle: 'Software Development | Data Science',
     tagline: 'Elementary Cell quality assurance for the LHCb RICH detector upgrade. Covers automated hardware testing across noise, dark count, and threshold measurements.',
     points: [
-      'Developed an automated C++/Python/LabVIEW software for photomultiplier QA',
+      'Developed automated C++/Python/LabVIEW software for hardware quality assurance',
       'Analyzed array performance via noise, dark count and threshold measurements',
-      'Explored ML-based particle identification for the LHCb RICH detector',
+      'Explored ML-based classification for detector signal identification',
     ],
     tags: [
       { category: 'Language', items: ['C++', 'Python', 'LabVIEW'] },

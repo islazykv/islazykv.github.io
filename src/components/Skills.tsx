@@ -1,60 +1,54 @@
 import { useState } from 'react'
 import type { IconType } from 'react-icons'
 import {
-  SiPython, SiCplusplus, SiGnubash, SiGit, SiJupyter, SiPytest, SiAnaconda,
+  SiPython, SiCplusplus, SiPostgresql, SiGnubash, SiLinux,
+  SiGit, SiJupyter, SiPytest, SiAnaconda, SiUv,
   SiNumpy, SiPandas, SiScipy, SiPlotly,
-  SiScikitlearn, SiPytorch, SiTensorflow, SiKeras,
-  SiMlflow, SiDocker, SiGithubactions, SiFastapi, SiWeightsandbiases,
-  SiHtml5, SiJavascript, SiReact,
-  SiKubernetes, SiUv, SiDvc, SiOptuna, SiLightning, SiDatabricks,
+  SiScikitlearn, SiPytorch, SiLightning,
+  SiOptuna,
+  SiMlflow, SiDocker, SiGithubactions, SiFastapi, SiWeightsandbiases, SiDvc,
+  SiApachespark, SiDatabricks, SiDbt,
 } from 'react-icons/si'
-import { FaDatabase, FaChartBar, FaCode, FaCss3Alt, FaProjectDiagram } from 'react-icons/fa'
-import { VscAzure, VscAzureDevops, VscGraphLine } from 'react-icons/vsc'
-import { RiSquareRoot } from 'react-icons/ri'
+import { FaChartBar, FaProjectDiagram } from 'react-icons/fa'
+import { VscAzure, VscGraphLine } from 'react-icons/vsc'
 import { GiHydra } from 'react-icons/gi'
 import { RxBarChart } from 'react-icons/rx'
-import { LuFlower2 } from 'react-icons/lu'
 import Section from './Section'
 
 const skillCategories: { name: string; skills: { name: string; icon?: IconType; iconText?: string; url: string }[] }[] = [
   {
-    name: 'Programming Languages',
+    name: 'Programming Languages & Tools',
     skills: [
       { name: 'Python', icon: SiPython, url: 'https://www.python.org' },
       { name: 'C++', icon: SiCplusplus, url: 'https://isocpp.org' },
-      { name: 'SQL', icon: FaDatabase, url: 'https://en.wikipedia.org/wiki/SQL' },
+      { name: 'SQL (PostgreSQL)', icon: SiPostgresql, url: 'https://www.postgresql.org' },
       { name: 'Bash', icon: SiGnubash, url: 'https://www.gnu.org/software/bash/' },
+      { name: 'Linux', icon: SiLinux, url: 'https://www.linux.org' },
+      { name: 'Git', icon: SiGit, url: 'https://git-scm.com' },
+      { name: 'Jupyter', icon: SiJupyter, url: 'https://jupyter.org' },
+      { name: 'pytest', icon: SiPytest, url: 'https://docs.pytest.org' },
+      { name: 'uv', icon: SiUv, url: 'https://docs.astral.sh/uv/' },
+      { name: 'conda', icon: SiAnaconda, url: 'https://docs.conda.io' },
     ],
   },
   {
-    name: 'Data Processing',
+    name: 'Data Processing & Visualization',
     skills: [
       { name: 'NumPy', icon: SiNumpy, url: 'https://numpy.org' },
       { name: 'pandas', icon: SiPandas, url: 'https://pandas.pydata.org' },
       { name: 'SciPy', icon: SiScipy, url: 'https://scipy.org' },
-      { name: 'ROOT', icon: RiSquareRoot, url: 'https://root.cern' },
-      { name: 'uproot', icon: LuFlower2, url: 'https://uproot.readthedocs.io' },
-      { name: 'Awkward Array', icon: FaCode, url: 'https://awkward-array.org' },
-      { name: 'pyhf', icon: FaChartBar, url: 'https://pyhf.readthedocs.io' },
-    ],
-  },
-  {
-    name: 'Data Visualization',
-    skills: [
       { name: 'Matplotlib', icon: VscGraphLine, url: 'https://matplotlib.org' },
       { name: 'seaborn', icon: FaChartBar, url: 'https://seaborn.pydata.org' },
       { name: 'Plotly', icon: SiPlotly, url: 'https://plotly.com' },
     ],
   },
   {
-    name: 'Machine & Deep Learning',
+    name: 'Machine Learning & Deep Learning',
     skills: [
       { name: 'scikit-learn', icon: SiScikitlearn, url: 'https://scikit-learn.org' },
       { name: 'XGBoost', iconText: 'XGB', url: 'https://xgboost.readthedocs.io' },
       { name: 'PyTorch', icon: SiPytorch, url: 'https://pytorch.org' },
       { name: 'PyTorch Lightning', icon: SiLightning, url: 'https://lightning.ai' },
-      { name: 'TensorFlow', icon: SiTensorflow, url: 'https://www.tensorflow.org' },
-      { name: 'Keras', icon: SiKeras, url: 'https://keras.io' },
     ],
   },
   {
@@ -66,48 +60,24 @@ const skillCategories: { name: string; skills: { name: string; icon?: IconType; 
     ],
   },
   {
-    name: 'Tracking',
+    name: 'Data & ML Infrastructure',
     skills: [
-      { name: 'MLflow', icon: SiMlflow, url: 'https://mlflow.org' },
-      { name: 'W&B', icon: SiWeightsandbiases, url: 'https://wandb.ai' },
-      { name: 'DVC', icon: SiDvc, url: 'https://dvc.org' },
-      { name: 'Hydra', icon: GiHydra, url: 'https://hydra.cc' },
-    ],
-  },
-  {
-    name: 'Deployment',
-    skills: [
-      { name: 'FastAPI', icon: SiFastapi, url: 'https://fastapi.tiangolo.com' },
       { name: 'Docker', icon: SiDocker, url: 'https://www.docker.com' },
       { name: 'GitHub Actions', icon: SiGithubactions, url: 'https://github.com/features/actions' },
-    ],
-  },
-  {
-    name: 'Environment',
-    skills: [
-      { name: 'Git', icon: SiGit, url: 'https://git-scm.com' },
-      { name: 'Jupyter', icon: SiJupyter, url: 'https://jupyter.org' },
-      { name: 'pytest', icon: SiPytest, url: 'https://docs.pytest.org' },
-      { name: 'uv', icon: SiUv, url: 'https://docs.astral.sh/uv/' },
-      { name: 'conda', icon: SiAnaconda, url: 'https://docs.conda.io' },
-    ],
-  },
-  {
-    name: 'Web Development',
-    skills: [
-      { name: 'HTML', icon: SiHtml5, url: 'https://developer.mozilla.org/en-US/docs/Web/HTML' },
-      { name: 'CSS', icon: FaCss3Alt, url: 'https://developer.mozilla.org/en-US/docs/Web/CSS' },
-      { name: 'JavaScript', icon: SiJavascript, url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
-      { name: 'React', icon: SiReact, url: 'https://react.dev' },
+      { name: 'FastAPI', icon: SiFastapi, url: 'https://fastapi.tiangolo.com' },
+      { name: 'DVC', icon: SiDvc, url: 'https://dvc.org' },
+      { name: 'MLflow', icon: SiMlflow, url: 'https://mlflow.org' },
+      { name: 'W&B', icon: SiWeightsandbiases, url: 'https://wandb.ai' },
+      { name: 'Hydra', icon: GiHydra, url: 'https://hydra.cc' },
     ],
   },
   {
     name: 'Currently Learning',
     skills: [
-      { name: 'Kubernetes', icon: SiKubernetes, url: 'https://kubernetes.io' },
-      { name: 'Azure ML', icon: VscAzure, url: 'https://azure.microsoft.com/en-us/products/machine-learning' },
-      { name: 'Azure DevOps Pipelines', icon: VscAzureDevops, url: 'https://azure.microsoft.com/en-us/products/devops/pipelines' },
+      { name: 'PySpark', icon: SiApachespark, url: 'https://spark.apache.org/docs/latest/api/python/' },
       { name: 'Databricks', icon: SiDatabricks, url: 'https://www.databricks.com' },
+      { name: 'dbt', icon: SiDbt, url: 'https://www.getdbt.com' },
+      { name: 'Azure', icon: VscAzure, url: 'https://azure.microsoft.com' },
     ],
   },
 ]
@@ -117,7 +87,7 @@ export default function Skills() {
 
   return (
     <Section id="skills" title="Skills">
-      <div className="flex flex-wrap justify-center mb-6 border-b border-border md:grid md:grid-cols-5">
+      <div className="flex flex-wrap justify-center mb-6 border-b border-border md:grid md:grid-cols-6">
         {skillCategories.map((cat, i) => (
           <button
             key={cat.name}
