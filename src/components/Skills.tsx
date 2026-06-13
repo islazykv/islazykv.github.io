@@ -49,11 +49,6 @@ const skillCategories: { name: string; skills: { name: string; icon?: IconType; 
       { name: 'XGBoost', iconText: 'XGB', url: 'https://xgboost.readthedocs.io' },
       { name: 'PyTorch', icon: SiPytorch, url: 'https://pytorch.org' },
       { name: 'PyTorch Lightning', icon: SiLightning, url: 'https://lightning.ai' },
-    ],
-  },
-  {
-    name: 'Tuning & Explainability',
-    skills: [
       { name: 'Optuna', icon: SiOptuna, url: 'https://optuna.org' },
       { name: 'Ray Tune', icon: FaProjectDiagram, url: 'https://docs.ray.io/en/latest/tune/' },
       { name: 'SHAP', icon: RxBarChart, url: 'https://shap.readthedocs.io' },
@@ -87,7 +82,7 @@ export default function Skills() {
 
   return (
     <Section id="skills" title="Skills">
-      <div className="flex flex-wrap justify-center mb-6 border-b border-border md:grid md:grid-cols-6">
+      <div className="flex flex-wrap justify-center mb-6 border-b border-border md:grid md:grid-cols-5">
         {skillCategories.map((cat, i) => (
           <button
             key={cat.name}

@@ -23,9 +23,9 @@ export const projects: Project[] = [
     subtitle: 'Boosted Decision Trees | Neural Networks',
     tagline: 'Supersymmetry search with taus using supervised machine learning. Built on Boosted Decision Trees and Deep Neural Networks. Isolates SUSY signatures from Standard Model backgrounds via multiclass classification.',
     points: [
-      'Developed a supervised ML pipeline for multiclass classification, tracked with MLflow',
-      'Trained and optimized classifiers with hyperparameter tuning via Optuna',
-      'Implemented ML-based regions construction and statistical hypothesis testing',
+      'Developed a supervised ML pipeline for 6-class classification, tracked with MLflow',
+      'Trained and optimized classifiers with hyperparameter tuning via Optuna (0.97 AUC)',
+      'Implemented ML-based region construction and statistical hypothesis testing',
     ],
     tags: [
       { category: 'Language', items: ['Python'] },
@@ -70,8 +70,8 @@ export const projects: Project[] = [
     tagline: 'Anomaly detection with taus using unsupervised machine learning. Built on Autoencoders and Variational Autoencoders. Flags anomalous tau signatures through reconstruction error scoring and latent space analysis.',
     points: [
       'Developed an unsupervised ML pipeline for anomaly detection, tracked with W&B',
-      'Trained and optimized models with hyperparameter tuning via Ray Tune',
-      'Implemented reconstruction error anomaly scoring and latent space analysis',
+      'Trained and optimized models with Ray Tune (1.46× significance gain)',
+      'Served reconstruction-error anomaly scores via a REST API (FastAPI, Docker)',
     ],
     tags: [
       { category: 'Language', items: ['Python'] },
@@ -142,7 +142,7 @@ export const projects: Project[] = [
     subtitle: 'Convolutional Neural Network | Boosted Decision Trees',
     tagline: 'Sphaleron and black hole event search at the LHC using deep learning. Compares convolutional networks on raw detector images against decision trees on high-level features.',
     points: [
-      'Optimized high-capacity models to classify rare, low frequency events',
+      'Optimized high-capacity models to classify rare, low-frequency events',
       'Built a pipeline encoding raw detector signals as multi-channel images for CNN input',
       'Compared high-level features with raw pixel data to maximize signal sensitivity',
     ],
