@@ -34,7 +34,7 @@ const experiences = [
     ],
   },
   {
-    role: 'Front-End Developer',
+    role: 'Junior Front-End Developer',
     period: '10.2016 - 09.2017',
     orgs: [
       { name: 'Freelance', location: 'Krakow, Poland' },
