@@ -26,11 +26,7 @@ export default function Landing() {
         >
           <span className="text-lg md:text-xl">ML</span>
           {' '}
-          <span className="text-lg md:text-xl">E</span>ngineer
-          {' '}
-          |
-          {' '}
-          <span className="text-lg md:text-xl">D</span>ata
+          <span className="text-lg md:text-xl">R</span>esearch
           {' '}
           <span className="text-lg md:text-xl">E</span>ngineer
         </motion.p>
