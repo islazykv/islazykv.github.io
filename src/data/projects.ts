@@ -181,14 +181,10 @@ export const projects: Project[] = [
       { category: 'Simulation', items: ['MadGraph', 'Pythia8', 'EvtGen'] },
     ],
     cardTags: ['C++'],
-    links: { note: 'https://islazykv.github.io/islazykv/pdfs/Di-Tau-Note.pdf' },
+    links: {},
     description:
       'Boosted di-tau reconstruction studies at CERN ATLAS, focused on identifying optimal jet algorithms for highly collimated tau pairs produced in heavy resonance decays.\n\nBuilt in C++ on top of the ATLAS Athena framework, this project adapts the existing di-tau reconstruction configuration and leverages the FastJet library to cluster subjets inside large-radius jets.\n\nMultiple jet algorithms and reconstruction strategies are benchmarked across a range of working points and mass scales to identify the configuration that best captures tau decay products in densely populated, high-momentum regimes.',
-    images: [
-      '/projects/di_tau/distribution_seed_jet_pt.png',
-      '/projects/di_tau/tight_efficiency_ditau_pt.png',
-      '/projects/di_tau/tight_efficiency_delta_r.png',
-    ],
+    images: [],
   },
   {
     slug: 'elementary-cells',
