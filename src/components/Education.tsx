@@ -5,7 +5,7 @@ const education = [
     level: 'Ph.D.',
     degrees: [
       {
-        field: 'Particle Physics',
+        field: 'Physics',
         schools: [
           { name: 'University of Ferrara', location: 'Ferrara, Italy' },
           { name: 'Institute of Nuclear Physics of the Polish Academy of Sciences', location: 'Krakow, Poland' },

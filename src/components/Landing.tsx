@@ -24,9 +24,9 @@ export default function Landing() {
           variants={m.fadeUp}
           className="text-accent text-sm md:text-base mb-10 tracking-wide uppercase"
         >
-          <span className="text-lg md:text-xl">ML</span>
+          <span className="text-lg md:text-xl">M</span>achine
           {' '}
-          <span className="text-lg md:text-xl">R</span>esearch
+          <span className="text-lg md:text-xl">L</span>earning
           {' '}
           <span className="text-lg md:text-xl">E</span>ngineer
         </motion.p>

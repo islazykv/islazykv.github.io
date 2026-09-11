@@ -12,7 +12,7 @@ const experiences = [
       'Built end-to-end, multi-stage data and ML pipelines processing datasets of 10M+ events, from raw ingestion to model-ready outputs',
       'Trained and evaluated ML models (XGBoost, PyTorch) for classification, regression and anomaly detection, tracked with MLflow and W&B',
       'Developed data transformation software within a distributed processing framework (Athena) operating at petabyte scale',
-      'Designed scalable ETL/ELT workflows for data preparation and feature engineering',
+      'Designed scalable ETL workflows for data preparation and feature engineering',
       'Optimized pipeline performance and refactored legacy code in a 4M-line collaborative codebase',
       'Implemented data validation and quality checks across pipeline stages',
       'Established automated testing and CI/CD pipelines for reliable, reproducible data and ML workflows',
